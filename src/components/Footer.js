@@ -4,10 +4,10 @@ import Button from "./Button";
 const Footer = () => {
   return (
     <footer id="footer">
-      <Button className="all__btn">All</Button>
-      <Button className="completed__btn">Completed</Button>
-      <Button className="active__btn">Active</Button>
-      <Button className="important__btn">Important</Button>
+      <Button className="footer__btn">All</Button>
+      <Button className="footer__btn">Completed</Button>
+      <Button className="footer__btn">Active</Button>
+      <Button className="footer__btn">Important</Button>
     </footer>
   )
 }

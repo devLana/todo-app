@@ -7,7 +7,7 @@ const Todo = ({ todo }) => {
       <p>{todo}</p>
       <span className="todo__btns">
         <Button className="important" title="Mark As Important">!</Button>
-        <Button className="delete__todo" title="Delete Todo">-</Button>
+        <Button className="delete__todo" title="Delete Todo">&ndash;</Button>
       </span>
     </li>
   );

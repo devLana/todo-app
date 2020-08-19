@@ -20,4 +20,15 @@ const TodoList = () => {
 
 export default TodoList;
 
-const todos = ["Cooks", "Sleep", "write", "eat"];
+const todos = [
+  "Cooks",
+  "Sleep",
+  "write",
+  "eat",
+  "run",
+  "jhgjhgf jhfgsdgfhsdgfhsdgfgjsgjsdgfsa dasdadasdasdasjsdg",
+  "gsdjfgsfjh",
+  "sgfuysgfuyts duytfytsduytfu",
+  "skjdfhhsdfj",
+  "sjkdhfjksdfhkjsd",
+];
