@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   font-family: "Comic Sans MS", cursive;
   -webkit-font-smoothing: antialiased;
@@ -13,8 +17,23 @@ body {
 }
 
 .container {
+  @include flexDisplay(center, center);
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+#todo__app {
+  width: 80%;
+  border: 2px solid black;
+  box-shadow: 0 0 5px 2px grey;
+
+  #main {
+    padding: 20px 15px;
+  }
+}
+
+%button-basic {
+  @include flexDisplay(center, center);
+  border: none;
+  padding: 0 5px;
+  cursor: pointer;
 }

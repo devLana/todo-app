@@ -1,0 +1,14 @@
+@mixin flexDisplay($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin actionButtons($color) {
+  font-size: 2.1rem;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: $color;
+}

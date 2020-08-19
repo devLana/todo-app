@@ -1,0 +1,9 @@
+#footer {
+  @include flexDisplay(space-between, center);
+
+  button {
+    @extend %button-basic;
+    padding: 8px 5px;
+    font-size: 1.6rem;
+  }
+}

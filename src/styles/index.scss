@@ -1,1 +1,11 @@
+@import "variables";
+
+@import "mixins";
+
 @import "main";
+
+@import "components/Navbar";
+
+@import "components/Todos";
+
+@import "components/Footer";

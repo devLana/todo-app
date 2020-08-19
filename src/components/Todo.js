@@ -5,9 +5,9 @@ const Todo = ({ todo }) => {
   return (
     <li className="todo">
       <p>{todo}</p>
-      <span className="ctrl__btns">
-        <Button className="important">!</Button>
-        <Button className="delete__todo">-</Button>
+      <span className="todo__btns">
+        <Button className="important" title="Mark As Important">!</Button>
+        <Button className="delete__todo" title="Delete Todo">-</Button>
       </span>
     </li>
   );

@@ -1,0 +1,25 @@
+#nav {
+  @include flexDisplay(space-between, center);
+  height: 70px;
+  display: flex;
+  padding: 15px;
+
+  .logo {
+    font-size: 2.3rem;
+  }
+
+  .nav__btns {
+    @include flexDisplay(space-between, center);
+    width: 80px;
+  }
+
+  .add__todo {
+    @extend %button-basic;
+    @include actionButtons(green);
+  }
+
+  .delete__all {
+    @extend %button-basic;
+    @include actionButtons(red);
+  }
+}
