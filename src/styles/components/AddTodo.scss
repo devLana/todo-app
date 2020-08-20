@@ -8,7 +8,7 @@
   bottom: 0;
 }
 
-#add__todo--form {
+#add__todo__form {
   background-color: $white;
   padding: 20px;
   width: 85%;
@@ -65,7 +65,8 @@
   .err__msg {
     text-align: center;
     margin-top: 15px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    font-weight: bold;
     color: $red;
   }
 }
