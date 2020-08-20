@@ -1,0 +1,71 @@
+#add__todo {
+  @include flexDisplay();
+  background-color: rgba($black, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#add__todo--form {
+  background-color: $white;
+  padding: 20px;
+  width: 85%;
+  min-width: 240px;
+  max-width: 400px;
+  position: relative;
+  border-radius: 3px;
+
+  .close {
+    @extend %button-basic;
+    @include actionButtons($black, $darkBlue);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .input--container {
+    @include flexDisplay();
+    flex-direction: column;
+    padding-top: 40px;
+
+    h2 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: $darkBlue;
+    }
+
+    input {
+      padding: 6px 8px;
+      font-size: 1.6rem;
+      width: 100%;
+      border-radius: 20px;
+      border: 2px solid $black;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    .submit {
+      @extend %button-basic;
+      background-color: $darkBlue;
+      padding: 8px;
+      font-size: 1.45rem;
+      font-weight: bold;
+      color: $white;
+      border-radius: 5px;
+      transition: background-color 0.2s linear;
+
+      &:hover {
+        background-color: $black;
+      }
+    }
+  }
+
+  .err__msg {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.4rem;
+    color: $red;
+  }
+}

@@ -1,0 +1,34 @@
+#todos {
+  list-style: none;
+
+  .todo {
+    @include flexDisplay(space-between);
+    padding: 5px 0;
+    border-bottom: 1px solid $black;
+    word-break: break-word;
+
+    &:last-of-type {
+      border-bottom: 1px solid transparent;
+    }
+
+    p {
+      font-size: 1.6rem;
+      flex: 0 0 60%;
+    }
+
+    .todo__btns {
+      @include flexDisplay(space-between);
+      flex: 0 0 80px;
+
+      .important {
+        @extend %button-basic;
+        @include actionButtons($lightOrange, $darkOrange, todo);
+      }
+
+      .delete__todo {
+        @extend %button-basic;
+        @include actionButtons($red, $lightRed, todo);
+      }
+    }
+  }
+}

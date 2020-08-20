@@ -1,0 +1,36 @@
+#nav {
+  @include flexDisplay(space-between);
+  @include containers(15px, $black, 70px);
+
+  .logo {
+    font-size: 2.3rem;
+    color: $white;
+  }
+
+  .nav__btns {
+    @include flexDisplay(space-between);
+    width: 80px;
+  }
+
+  .add__todo {
+    @extend %button-basic;
+    @include actionButtons($lime, $green);
+  }
+
+  .delete__all {
+    @extend %button-basic;
+    @include actionButtons($red, $lightRed);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #nav {
+    .logo {
+      margin-left: 16px;
+    }
+
+    .nav__btns {
+      margin-right: 16px;
+    }
+  }
+}

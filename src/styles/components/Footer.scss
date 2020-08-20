@@ -1,0 +1,18 @@
+#footer {
+  @include flexDisplay(space-around);
+  @include containers(15px 0, $light, 60px);
+
+  .footer__btn {
+    @extend %button-basic;
+    padding: 8px;
+    font-size: 1.45rem;
+    font-weight: bold;
+    color: $black;
+    border-radius: 5px;
+    transition: color 0.2s linear;
+
+    &:hover {
+      color: $darkBlue;
+    }
+  }
+}
