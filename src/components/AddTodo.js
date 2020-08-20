@@ -33,7 +33,7 @@ const AddTodo = ({ toggleAddTodo, status }) => {
   };
 
   return (
-    <div id="add__todo" style={{ display: status ? "flex" : "none"}}>
+    <div id="add__todo">
       <div id="add__todo--form">
         <Button className="close" onClick={toggleAddTodo} title="close">
           &times;

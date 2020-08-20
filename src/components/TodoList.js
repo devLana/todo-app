@@ -11,9 +11,6 @@ const TodoList = () => {
           ))}
         </ul>
       </div>
-      {/* <div className="info">
-        <p>You currently have no todos</p>
-      </div> */}
     </main>
   );
 };

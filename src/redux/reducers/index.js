@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux";
 import { getId } from "../../utils";
 
 const activeFilter = (state = "SHOW_ALL", action) => {
@@ -21,7 +21,7 @@ const todos = (state = [], action) => {
           id: getId(state),
           content: payload,
           completed: false,
-          important: true,
+          important: false,
         },
       ];
     case "DELETE_TODO":
@@ -56,4 +56,4 @@ const todos = (state = [], action) => {
 export default combineReducers({
   activeFilter,
   todos,
-})
+});
