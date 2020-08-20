@@ -1,10 +1,10 @@
 #nav {
   @include flexDisplay(space-between);
-  @include containers(15px, $darkBlue, 70px);
+  @include containers(15px, $black, 70px);
 
   .logo {
     font-size: 2.3rem;
-    color: $lightOrange;
+    color: $white;
   }
 
   .nav__btns {
@@ -19,7 +19,7 @@
 
   .delete__all {
     @extend %button-basic;
-    @include actionButtons($lightRed, $red);
+    @include actionButtons($red, $lightRed);
   }
 }
 
