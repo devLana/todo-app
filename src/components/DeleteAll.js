@@ -7,7 +7,7 @@ const DeleteAll = ({ dispatch, toggleDelete }) => {
   const deleteAllTodos = () => {
     dispatch(deleteAll());
     toggleDelete();
-  }
+  };
   return (
     <div id="delete__all">
       <div id="delete__all--container">
