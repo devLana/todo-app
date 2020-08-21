@@ -54,6 +54,7 @@ const AddTodo = ({ toggleAddTodo, status, dispatch }) => {
             onBlur={handleBlur}
             onFocus={handleFocus}
             onKeyUp={handleKeyPress}
+            autoFocus
           />
           <Button className="submit" onClick={submit}>
             Add Todo

@@ -2,7 +2,7 @@
   list-style: none;
 
   .todo {
-    @include flexDisplay(space-between);
+    @include flexDisplay();
     padding: 5px 0;
     border-bottom: 1px solid $black;
     word-break: break-word;
@@ -14,21 +14,25 @@
     &::before {
       content: "";
       display: inline-block;
-      width: 10px;
-      height: 10px;
-      border: 3px solid $lime;
-      border-radius: 50%;
+      width: 8px;
+      height: 8px;
       margin-right: 10px;
+      border-radius: 50%;
+      background-color: $black;
     }
 
     p {
+      color: $black;
       font-size: 1.6rem;
-      flex: 0 0 60%;
+      margin-right: auto;
+      max-width: 55%;
+      align-self: flex-start;
+      cursor: pointer;
     }
 
     .todo__btns {
       @include flexDisplay(space-between);
-      flex: 0 0 80px;
+      width: 80px;
 
       .important__btn {
         @extend %button-basic;
@@ -38,7 +42,30 @@
       .delete__todo__btn {
         @extend %button-basic;
         @include actionButtons($red, $lightRed, todo);
+        @include flexDisplay(center, flex-end);
       }
+    }
+  }
+
+  .todo.important {
+    &::before {
+      background-color: $darkOrange;
+    }
+
+    p {
+      color: $darkOrange;
+    }
+  }
+
+  .todo.complete {
+    &::before {
+      background-color: $green;
+    }
+
+    p {
+      text-decoration: line-through;
+      font-style: italic;
+      color: $green;
     }
   }
 }

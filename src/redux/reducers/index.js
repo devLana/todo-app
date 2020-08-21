@@ -43,7 +43,7 @@ const todos = (state = [], action) => {
         if (todo.id === payload) {
           return {
             ...todo,
-            complete: !todo.complete,
+            completed: !todo.completed,
           };
         }
         return todo;
