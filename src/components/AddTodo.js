@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addTodo } from "../redux/actions";
 import Button from "./Button";
 
-const AddTodo = ({ toggleAddTodo, status }) => {
+const AddTodo = ({ toggleAddTodo, status, dispatch }) => {
   const [todo, setTodo] = useState("");
   const [err, setErr] = useState("");
 
@@ -27,14 +29,18 @@ const AddTodo = ({ toggleAddTodo, status }) => {
     const input = todo.trim();
 
     if (!input) {
-      setErr("Enter a todo");
+      setErr("Please enter a todo");
       return;
     }
+
+    dispatch(addTodo(input));
+    setTodo("");
+    toggleAddTodo();
   };
 
   return (
-    <div id="add__todo" style={{ display: status ? "flex" : "none"}}>
-      <div id="add__todo--form">
+    <div id="add__todo">
+      <div id="add__todo__form">
         <Button className="close" onClick={toggleAddTodo} title="close">
           &times;
         </Button>
@@ -48,6 +54,7 @@ const AddTodo = ({ toggleAddTodo, status }) => {
             onBlur={handleBlur}
             onFocus={handleFocus}
             onKeyUp={handleKeyPress}
+            autoFocus
           />
           <Button className="submit" onClick={submit}>
             Add Todo
@@ -59,4 +66,4 @@ const AddTodo = ({ toggleAddTodo, status }) => {
   );
 };
 
-export default AddTodo;
+export default connect()(AddTodo);

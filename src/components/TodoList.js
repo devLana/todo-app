@@ -1,34 +1,47 @@
 import React from "react";
+import { connect } from "react-redux";
+import { deleteTodo, toggleImportant, toggleComplete } from "../redux/actions";
 import Todo from "./Todo";
 
-const TodoList = () => {
+const styles = {
+  fontSize: "2rem",
+  textAlign: "center",
+  marginTop: "40px",
+};
+
+const TodoList = props => {
+  const { todos, deleteTodo, toggleImportant, toggleComplete } = props;
   return (
     <main id="main">
       <div className="todos--container">
-        <ul id="todos">
-          {todos.map(todo => (
-            <Todo key={todo} todo={todo} />
-          ))}
-        </ul>
+        {todos.length === 0 ? (
+          <p style={styles}>You have no todos</p>
+        ) : (
+          <ul id="todos">
+            {todos.map(todo => (
+              <Todo
+                key={todo.id}
+                {...todo}
+                deleteTodo={deleteTodo}
+                toggleImportant={toggleImportant}
+                toggleComplete={toggleComplete}
+              />
+            ))}
+          </ul>
+        )}
       </div>
-      {/* <div className="info">
-        <p>You currently have no todos</p>
-      </div> */}
     </main>
   );
 };
 
-export default TodoList;
+const mapStateToProps = state => ({
+  todos: state.todos,
+});
 
-const todos = [
-  "Cooks",
-  "Sleep",
-  "write",
-  "eat",
-  "run",
-  "jhgjhgf jhfgsdgfhsdgfhsdgfgjsgjsdgfsa dasdadasdasdasjsdg",
-  "gsdjfgsfjh",
-  "sgfuysgfuyts duytfytsduytfu",
-  "skjdfhhsdfj",
-  "sjkdhfjksdfhkjsd",
-];
+const mapDispatchToProps = dispatch => ({
+  deleteTodo: todoId => dispatch(deleteTodo(todoId)),
+  toggleImportant: todoId => dispatch(toggleImportant(todoId)),
+  toggleComplete: todoId => dispatch(toggleComplete(todoId)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

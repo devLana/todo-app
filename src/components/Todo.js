@@ -1,13 +1,33 @@
 import React from "react";
 import Button from "./Button";
 
-const Todo = ({ todo }) => {
+const Todo = props => {
   return (
-    <li className="todo">
-      <p>{todo}</p>
+    <li
+      className={
+        props.completed
+          ? "todo complete"
+          : props.important
+          ? "todo important "
+          : "todo"
+      }
+    >
+      <p onClick={() => props.toggleComplete(props.id)}>{props.content}</p>
       <span className="todo__btns">
-        <Button className="important" title="Mark As Important">!</Button>
-        <Button className="delete__todo" title="Delete Todo">&ndash;</Button>
+        <Button
+          className="important__btn"
+          onClick={() => props.toggleImportant(props.id)}
+          title="Mark As Important"
+        >
+          !
+        </Button>
+        <Button
+          className="delete__todo__btn"
+          onClick={() => props.deleteTodo(props.id)}
+          title="Delete Todo"
+        >
+          &ndash;
+        </Button>
       </span>
     </li>
   );

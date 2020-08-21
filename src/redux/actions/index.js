@@ -22,14 +22,7 @@ export const toggleComplete = todoId => ({
   payload: todoId,
 });
 
-export const activeFilter = filter => ({
+export const setActiveFilter = filter => ({
   type: "SET_ACTIVE_FILTER",
   payload: filter,
 });
-
-export const filters = {
-  all: "SHOW_ALL",
-  completed: "SHOW_COMPLETED",
-  active: "SHOW_ACTIVE",
-  important: "SHOW_IMPORTANT",
-};

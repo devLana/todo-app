@@ -17,7 +17,7 @@ const TodoApp = () => {
         <Navbar toggleAddTodo={toggleAddTodo} />
         <TodoList />
         <Footer />
-        <AddTodo toggleAddTodo={toggleAddTodo} status={addTodo} />
+        {addTodo && <AddTodo toggleAddTodo={toggleAddTodo} status={addTodo} />}
         {/* <DeleteAll /> */}
         {/* <DeleteTodo /> */}
       </div>

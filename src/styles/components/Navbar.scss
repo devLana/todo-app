@@ -12,25 +12,13 @@
     width: 80px;
   }
 
-  .add__todo {
+  .add__todo__btn {
     @extend %button-basic;
     @include actionButtons($lime, $green);
   }
 
-  .delete__all {
+  .delete__all__btn {
     @extend %button-basic;
     @include actionButtons($red, $lightRed);
-  }
-}
-
-@media screen and (min-width: 992px) {
-  #nav {
-    .logo {
-      margin-left: 16px;
-    }
-
-    .nav__btns {
-      margin-right: 16px;
-    }
   }
 }
