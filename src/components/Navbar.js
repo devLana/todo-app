@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-const Navbar = ({ toggleAddTodo }) => {
+const Navbar = ({ toggleAddTodo, toggleDelete }) => {
   return (
     <nav id="nav">
       <h1 className="logo">Todo App</h1>
@@ -10,12 +10,14 @@ const Navbar = ({ toggleAddTodo }) => {
           className="add__todo__btn"
           onClick={toggleAddTodo}
           title="Add New Todo"
-        >
-          +
-        </Button>
-        <Button className="delete__all__btn" title="Delete All Todos">
-          &times;
-        </Button>
+          value="+"
+        />
+        <Button
+          className="delete__all__btn"
+          onClick={toggleDelete}
+          title="Delete All Todos"
+          value="&times;"
+        />
       </div>
     </nav>
   );

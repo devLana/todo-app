@@ -18,16 +18,14 @@ const Todo = props => {
           className="important__btn"
           onClick={() => props.toggleImportant(props.id)}
           title="Mark As Important"
-        >
-          !
-        </Button>
+          value="!"
+        />
         <Button
           className="delete__todo__btn"
           onClick={() => props.deleteTodo(props.id)}
           title="Delete Todo"
-        >
-          &ndash;
-        </Button>
+          value="&ndash;"
+        />
       </span>
     </li>
   );
