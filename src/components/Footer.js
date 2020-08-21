@@ -1,15 +1,28 @@
 import React from "react";
+import { connect } from "react-redux";
+import { setActiveFilter } from "../redux/actions";
+import { navLinks } from "../utils";
 import Button from "./Button";
 
-const Footer = () => {
+const Footer = ({ filter, setActiveFilter }) => {
   return (
     <footer id="footer">
-      <Button className="footer__btn" value="All" />
-      <Button className="footer__btn" value="Completed" />
-      <Button className="footer__btn" value="Active" />
-      <Button className="footer__btn" value="Important" />
+      {navLinks.map(navLink => (
+        <Button
+          key={navLink.name}
+          className={
+            navLink.filter === filter ? "footer__btn active" : "footer__btn"
+          }
+          value={navLink.name}
+          onClick={() => setActiveFilter(navLink.filter)}
+        />
+      ))}
     </footer>
-  )
-}
+  );
+};
 
-export default Footer;
+const mapStateToProps = state => ({
+  filter: state.activeFilter,
+});
+
+export default connect(mapStateToProps, { setActiveFilter })(Footer);
