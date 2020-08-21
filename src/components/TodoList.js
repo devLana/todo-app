@@ -11,6 +11,7 @@ const styles = {
 
 const TodoList = props => {
   const { todos, deleteTodo, toggleImportant, toggleComplete } = props;
+
   return (
     <main id="main">
       <div className="todos--container">
@@ -38,10 +39,10 @@ const mapStateToProps = state => ({
   todos: state.todos,
 });
 
-const mapDispatchToProps = dispatch => ({
-  deleteTodo: todoId => dispatch(deleteTodo(todoId)),
-  toggleImportant: todoId => dispatch(toggleImportant(todoId)),
-  toggleComplete: todoId => dispatch(toggleComplete(todoId)),
-});
+const mapDispatchToProps = {
+  deleteTodo,
+  toggleImportant,
+  toggleComplete,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

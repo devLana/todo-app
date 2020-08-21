@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addTodo } from "../redux/actions";
 import Button from "./Button";
 
-const AddTodo = ({ toggleAddTodo, status, dispatch }) => {
+const AddTodo = ({ toggleAddTodo, dispatch }) => {
   const [todo, setTodo] = useState("");
   const [err, setErr] = useState("");
 
@@ -41,9 +41,12 @@ const AddTodo = ({ toggleAddTodo, status, dispatch }) => {
   return (
     <div id="add__todo">
       <div id="add__todo__form">
-        <Button className="close" onClick={toggleAddTodo} title="close">
-          &times;
-        </Button>
+        <Button
+          className="close"
+          onClick={toggleAddTodo}
+          title="close"
+          value="&times;"
+        />
         <div className="input--container">
           <h2>Add A New Todo</h2>
           <input
@@ -56,9 +59,7 @@ const AddTodo = ({ toggleAddTodo, status, dispatch }) => {
             onKeyUp={handleKeyPress}
             autoFocus
           />
-          <Button className="submit" onClick={submit}>
-            Add Todo
-          </Button>
+          <Button className="submit" onClick={submit} value="Add Todo" />
         </div>
         {err && <p className="err__msg">{err}</p>}
       </div>

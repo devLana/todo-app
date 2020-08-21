@@ -1,15 +1,15 @@
 import React from "react";
 
-const Button = ({ className, onClick, title, children }) => {
+const Button = ({ className, onClick, title, value }) => {
   return (
     <>
       {title ? (
         <button className={className} onClick={onClick} title={title}>
-          {children}
+          {value}
         </button>
       ) : (
         <button className={className} onClick={onClick}>
-          {children}
+          {value}
         </button>
       )}
     </>
