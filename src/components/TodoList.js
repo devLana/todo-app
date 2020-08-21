@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteTodo, toggleImportant, toggleComplete } from "../redux/actions";
+import { showTodos } from "../utils";
 import Todo from "./Todo";
 
 const styles = {
@@ -16,7 +17,7 @@ const TodoList = props => {
     <main id="main">
       <div className="todos--container">
         {todos.length === 0 ? (
-          <p style={styles}>You have no todos</p>
+          <p style={styles}>No todos available</p>
         ) : (
           <ul id="todos">
             {todos.map(todo => (
@@ -35,9 +36,10 @@ const TodoList = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  todos: state.todos,
-});
+const mapStateToProps = state => {
+  const { todos, activeFilter } = state;
+  return { todos: showTodos(todos, activeFilter) };
+};
 
 const mapDispatchToProps = {
   deleteTodo,

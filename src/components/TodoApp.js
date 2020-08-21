@@ -4,7 +4,6 @@ import TodoList from "./TodoList";
 import Footer from "./Footer";
 import AddTodo from "./AddTodo";
 import DeleteAll from "./DeleteAll";
-// import DeleteTodo from "./DeleteTodo";
 
 const TodoApp = () => {
   const [addTodo, setAddTodo] = useState(false);
@@ -21,7 +20,6 @@ const TodoApp = () => {
         <Footer />
         {addTodo && <AddTodo toggleAddTodo={toggleAddTodo} />}
         {deleteAll && <DeleteAll toggleDelete={toggleDelete} />}
-        {/* <DeleteTodo /> */}
       </div>
     </div>
   );
