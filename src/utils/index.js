@@ -1,7 +1,8 @@
 export const getId = arr => {
-  const len = arr.length;
-  const newId = len === 0 ? 1 : arr[len - 1].id + 1;
-  return newId;
+  const idArr = arr.map(item => item.id);
+  const maxId = Math.max(...idArr);
+
+  return arr.length === 0 ? 1 : maxId + 1;
 };
 
 export const showTodos = (todos, filter) => {
