@@ -51,6 +51,13 @@
   min-width: 240px;
   max-width: 350px;
   border-radius: 3px;
+  transform: scale(0);
+  animation: scale 0.2s linear 0.1s forwards;
+  @keyframes scale {
+    to {
+      transform: scale(1);
+    }
+  }
 }
 
 @mixin modalButton($color) {
@@ -67,4 +74,7 @@
   margin-bottom: 30px;
   font-size: 2rem;
   color: $darkBlue;
+}
+
+@mixin animate() {
 }
