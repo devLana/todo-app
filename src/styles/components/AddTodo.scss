@@ -1,21 +1,9 @@
 #add__todo {
-  @include flexDisplay();
-  background-color: rgba($black, 0.95);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  @include modalBackground();
 }
 
 #add__todo__form {
-  background-color: $white;
-  padding: 20px;
-  width: 85%;
-  min-width: 240px;
-  max-width: 350px;
-  position: relative;
-  border-radius: 3px;
+  @include modalContainer();
 
   .close {
     @extend %button-basic;
@@ -31,9 +19,7 @@
     padding-top: 40px;
 
     h2 {
-      margin-bottom: 30px;
-      font-size: 2rem;
-      color: $darkBlue;
+      @include heading();
     }
 
     input {
@@ -48,13 +34,7 @@
 
     .submit {
       @extend %button-basic;
-      background-color: $darkBlue;
-      padding: 8px;
-      font-size: 1.45rem;
-      font-weight: bold;
-      color: $white;
-      border-radius: 5px;
-      transition: background-color 0.2s linear;
+      @include modalButton($darkBlue);
 
       &:hover {
         background-color: $black;
@@ -63,8 +43,8 @@
   }
 
   .err__msg {
-    text-align: center;
     margin-top: 15px;
+    text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
     color: $red;
