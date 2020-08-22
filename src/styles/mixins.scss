@@ -52,7 +52,7 @@
   max-width: 350px;
   border-radius: 3px;
   transform: scale(0);
-  animation: scale 0.2s linear 0.1s forwards;
+  animation: scale 0.1s linear 0.1s forwards;
   @keyframes scale {
     to {
       transform: scale(1);
