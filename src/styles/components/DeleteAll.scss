@@ -1,27 +1,12 @@
 #delete__all {
-  @include flexDisplay();
-  background-color: rgba($black, 0.95);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  @include modalBackground();
 }
 
 #delete__all--container {
-  @include flexDisplay();
-  flex-direction: column;
-  background-color: $white;
-  padding: 20px;
-  width: 85%;
-  min-width: 240px;
-  max-width: 350px;
-  border-radius: 3px;
+  @include modalContainer(del);
 
   h2 {
-    margin-bottom: 15px;
-    font-size: 2rem;
-    color: $darkBlue;
+    @include heading();
   }
 
   p {
@@ -36,24 +21,12 @@
 
     .delete__all {
       @extend %button-basic;
-      background-color: $red;
-      padding: 8px;
-      font-size: 1.45rem;
-      font-weight: bold;
-      color: $white;
-      border-radius: 5px;
-      transition: background-color 0.2s linear;
+      @include modalButton($red);
     }
 
     .cancel__delete__all {
       @extend %button-basic;
-      background-color: $darkBlue;
-      padding: 8px;
-      font-size: 1.45rem;
-      font-weight: bold;
-      color: $white;
-      border-radius: 5px;
-      transition: background-color 0.2s linear;
+      @include modalButton($darkBlue);
     }
   }
 }
