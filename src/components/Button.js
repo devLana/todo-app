@@ -1,9 +1,20 @@
 import React from "react";
 
-const Button = ({ className, onClick, title, value }) => {
+const Button = props => {
+  const { className, onClick, title, disable, value } = props;
+
   return (
     <>
-      {title ? (
+      {title && disable ? (
+        <button
+          className={className}
+          onClick={onClick}
+          title={title}
+          disabled={disable}
+        >
+          {value}
+        </button>
+      ) : title ? (
         <button className={className} onClick={onClick} title={title}>
           {value}
         </button>

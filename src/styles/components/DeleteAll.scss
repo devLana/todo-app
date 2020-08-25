@@ -1,12 +1,13 @@
 #delete__all {
-  @include modalBackground();
+  @extend %modal;
+  @include flexDisplay;
 }
 
 #delete__all--container {
   @include modalContainer(del);
 
   h2 {
-    @include heading();
+    @extend %heading;
   }
 
   p {

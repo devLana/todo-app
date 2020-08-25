@@ -4,10 +4,7 @@
   align-items: $align;
 }
 
-@mixin actionButtons($color, $hover, $val: false) {
-  @if $val == todo {
-    font-weight: bold;
-  }
+@mixin actionButtons($color, $hover,) {
   font-size: 2.1rem;
   color: $color;
   width: 27px;
@@ -26,16 +23,6 @@
   padding: $padding;
   background-color: $bgColor;
   height: $height;
-}
-
-@mixin modalBackground() {
-  @include flexDisplay;
-  background-color: rgba($black, 0.95);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 
 @mixin modalContainer($val: addTodo) {
@@ -68,10 +55,4 @@
   color: $white;
   border-radius: 5px;
   transition: background-color 0.2s linear;
-}
-
-@mixin heading() {
-  margin-bottom: 30px;
-  font-size: 2rem;
-  color: $darkBlue;
 }

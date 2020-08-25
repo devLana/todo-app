@@ -20,5 +20,10 @@
   .delete__all__btn {
     @extend %button-basic;
     @include actionButtons($red, $lightRed);
+
+    &[disabled] {
+      color: $darkRed;
+      border-color: $darkRed;
+    }
   }
 }
