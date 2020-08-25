@@ -28,16 +28,6 @@
   height: $height;
 }
 
-@mixin modalBackground() {
-  @include flexDisplay;
-  background-color: rgba($black, 0.95);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
 @mixin modalContainer($val: addTodo) {
   @if $val == addTodo {
     position: relative;
@@ -68,10 +58,4 @@
   color: $white;
   border-radius: 5px;
   transition: background-color 0.2s linear;
-}
-
-@mixin heading() {
-  margin-bottom: 30px;
-  font-size: 2rem;
-  color: $darkBlue;
 }
