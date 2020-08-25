@@ -35,12 +35,12 @@
 
       .important__btn {
         @extend %button-basic;
-        @include actionButtons($lightOrange, $darkOrange, todo);
+        @include actionButtons($lightOrange, $darkOrange);
       }
 
       .delete__todo__btn {
         @extend %button-basic;
-        @include actionButtons($red, $lightRed, todo);
+        @include actionButtons($red, $lightRed);
         @include flexDisplay(center, flex-end);
       }
     }
