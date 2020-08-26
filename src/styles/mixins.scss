@@ -4,8 +4,13 @@
   align-items: $align;
 }
 
-@mixin actionButtons($color, $hover,) {
-  font-size: 2.1rem;
+@mixin actionButtons($color, $hover, $val: false) {
+  @if $val == todo {
+    @include flexDisplay(center, flex-end);
+  } @else {
+    @include flexDisplay;
+  }
+  font-size: 2rem;
   color: $color;
   width: 27px;
   height: 27px;
