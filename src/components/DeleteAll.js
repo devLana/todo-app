@@ -8,6 +8,7 @@ const DeleteAll = ({ dispatch, toggleDelete }) => {
     dispatch(deleteAll());
     toggleDelete();
   };
+
   return (
     <div id="delete__all">
       <div id="delete__all--container">

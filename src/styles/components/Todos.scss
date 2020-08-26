@@ -40,8 +40,7 @@
 
       .delete__todo__btn {
         @extend %button-basic;
-        @include actionButtons($red, $lightRed);
-        @include flexDisplay(center, flex-end);
+        @include actionButtons($red, $lightRed, todo);
       }
     }
   }

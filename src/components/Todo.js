@@ -2,6 +2,18 @@ import React from "react";
 import Button from "./Button";
 
 const Todo = props => {
+  const toggleComplete = () => {
+    props.toggleComplete(props.id);
+  };
+
+  const toggleImportant = () => {
+    props.toggleImportant(props.id);
+  };
+
+  const deleteTodo = () => {
+    props.deleteTodo(props.id);
+  };
+
   return (
     <li
       className={
@@ -12,17 +24,17 @@ const Todo = props => {
           : "todo"
       }
     >
-      <p onClick={() => props.toggleComplete(props.id)}>{props.content}</p>
+      <p onClick={toggleComplete}>{props.content}</p>
       <span className="todo__btns">
         <Button
           className="important__btn"
-          onClick={() => props.toggleImportant(props.id)}
+          onClick={toggleImportant}
           title="Mark As Important"
           value="!"
         />
         <Button
           className="delete__todo__btn"
-          onClick={() => props.deleteTodo(props.id)}
+          onClick={deleteTodo}
           title="Delete Todo"
           value="&ndash;"
         />

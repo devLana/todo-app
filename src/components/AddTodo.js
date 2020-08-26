@@ -7,7 +7,9 @@ const AddTodo = ({ toggleAddTodo, dispatch }) => {
   const [todo, setTodo] = useState("");
   const [err, setErr] = useState("");
 
-  const handleChange = e => setTodo(e.target.value);
+  const handleChange = e => {
+    setTodo(e.target.value);
+  };
 
   const handleBlur = e => {
     e.target.style.border = "2px solid #000";

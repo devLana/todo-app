@@ -9,8 +9,13 @@ const TodoApp = () => {
   const [addTodo, setAddTodo] = useState(false);
   const [deleteAll, setDelete] = useState(false);
 
-  const toggleAddTodo = () => setAddTodo(!addTodo);
-  const toggleDelete = () => setDelete(!deleteAll);
+  const toggleAddTodo = () => {
+    setAddTodo(!addTodo);
+  };
+
+  const toggleDelete = () => {
+    setDelete(!deleteAll);
+  };
 
   return (
     <div className="container">
