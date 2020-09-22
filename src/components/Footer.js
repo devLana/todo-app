@@ -1,20 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setActiveFilter } from "../redux/actions";
-import { navLinks } from "../utils";
+import { filters } from "../utils";
 import Button from "./Button";
 
 const Footer = ({ filter, setActiveFilter }) => {
   return (
     <footer id="footer">
-      {navLinks.map(navLink => (
+      {filters.map(({ name, type }) => (
         <Button
-          key={navLink.name}
-          className={
-            navLink.filter === filter ? "footer__btn active" : "footer__btn"
-          }
-          value={navLink.name}
-          onClick={() => setActiveFilter(navLink.filter)}
+          key={name}
+          className={type === filter ? "footer__btn active" : "footer__btn"}
+          value={name}
+          onClick={() => setActiveFilter(type)}
         />
       ))}
     </footer>

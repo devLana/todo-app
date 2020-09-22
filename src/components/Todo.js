@@ -1,40 +1,39 @@
 import React from "react";
+import { deleteTodo, toggleImportant, toggleComplete } from "../redux/actions";
 import Button from "./Button";
 
 const Todo = props => {
-  const toggleComplete = () => {
-    props.toggleComplete(props.id);
+  const { todosAction, completed, content, id, important } = props;
+
+  const handleComplete = () => {
+    todosAction(id, toggleComplete);
   };
 
-  const toggleImportant = () => {
-    props.toggleImportant(props.id);
+  const handleImportant = () => {
+    todosAction(id, toggleImportant);
   };
 
-  const deleteTodo = () => {
-    props.deleteTodo(props.id);
+  const handleDeleteTodo = () => {
+    todosAction(id, deleteTodo);
   };
 
   return (
     <li
       className={
-        props.completed
-          ? "todo complete"
-          : props.important
-          ? "todo important "
-          : "todo"
+        completed ? "todo complete" : important ? "todo important" : "todo"
       }
     >
-      <p onClick={toggleComplete}>{props.content}</p>
+      <p onClick={handleComplete}>{content}</p>
       <span className="todo__btns">
         <Button
           className="important__btn"
-          onClick={toggleImportant}
+          onClick={handleImportant}
           title="Mark As Important"
           value="!"
         />
         <Button
           className="delete__todo__btn"
-          onClick={deleteTodo}
+          onClick={handleDeleteTodo}
           title="Delete Todo"
           value="&ndash;"
         />

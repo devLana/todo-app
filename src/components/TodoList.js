@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteTodo, toggleImportant, toggleComplete } from "../redux/actions";
 import { showTodos } from "../utils";
+import { todosAction } from "../redux/actions";
 import Todo from "./Todo";
 
 const styles = {
@@ -11,7 +11,7 @@ const styles = {
 };
 
 const TodoList = props => {
-  const { todos, deleteTodo, toggleImportant, toggleComplete } = props;
+  const { todos, todosAction } = props;
 
   return (
     <main id="main">
@@ -21,13 +21,7 @@ const TodoList = props => {
         ) : (
           <ul id="todos">
             {todos.map(todo => (
-              <Todo
-                key={todo.id}
-                {...todo}
-                deleteTodo={deleteTodo}
-                toggleImportant={toggleImportant}
-                toggleComplete={toggleComplete}
-              />
+              <Todo {...todo} key={todo.id} todosAction={todosAction} />
             ))}
           </ul>
         )}
@@ -41,10 +35,4 @@ const mapStateToProps = state => {
   return { todos: showTodos(todos, activeFilter) };
 };
 
-const mapDispatchToProps = {
-  deleteTodo,
-  toggleImportant,
-  toggleComplete,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+export default connect(mapStateToProps, { todosAction })(TodoList);

@@ -26,21 +26,35 @@ export const showTodos = (todos, filter) => {
   }
 };
 
-export const navLinks = [
+export const filters = [
   {
     name: "All",
-    filter: "SHOW_ALL",
+    type: "SHOW_ALL",
   },
   {
     name: "Completed",
-    filter: "SHOW_COMPLETED",
+    type: "SHOW_COMPLETED",
   },
   {
     name: "Active",
-    filter: "SHOW_ACTIVE",
+    type: "SHOW_ACTIVE",
   },
   {
     name: "Important",
-    filter: "SHOW_IMPORTANT",
+    type: "SHOW_IMPORTANT",
   },
 ];
+
+export const setStorage = state => {
+  const todos = JSON.stringify(state);
+  localStorage.setItem("todos", todos);
+};
+
+export const getStorage = () => {
+  const todos = localStorage.getItem("todos");
+  return JSON.parse(todos);
+};
+
+export const removeStorage = () => {
+  localStorage.removeItem("todos");
+};

@@ -48,6 +48,8 @@ const todos = (state = [], action) => {
         }
         return todo;
       });
+    case "SET_TODOS":
+      return payload;
     default:
       return state;
   }

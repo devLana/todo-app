@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteAll } from "../redux/actions";
+import { removeStorage } from "../utils";
 import Button from "./Button";
 
 const DeleteAll = ({ dispatch, toggleDelete }) => {
   const deleteAllTodos = () => {
     dispatch(deleteAll());
     toggleDelete();
+    removeStorage();
   };
 
   return (
