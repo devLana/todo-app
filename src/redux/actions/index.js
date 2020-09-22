@@ -1,3 +1,5 @@
+import { setStorage } from "../../utils";
+
 export const addTodo = todo => ({
   type: "ADD_TODO",
   payload: todo,
@@ -26,3 +28,13 @@ export const setActiveFilter = filter => ({
   type: "SET_ACTIVE_FILTER",
   payload: filter,
 });
+
+export const setTodos = todos => ({
+  type: "SET_TODOS",
+  payload: todos,
+});
+
+export const todosAction = (param, callback) => (dispatch, getState) => {
+  dispatch(callback(param));
+  setStorage(getState().todos);
+};

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../redux/actions";
+import { addTodo, todosAction } from "../redux/actions";
 import Button from "./Button";
 
 const AddTodo = ({ toggleAddTodo, dispatch }) => {
@@ -35,7 +35,7 @@ const AddTodo = ({ toggleAddTodo, dispatch }) => {
       return;
     }
 
-    dispatch(addTodo(input));
+    dispatch(todosAction(input, addTodo));
     setTodo("");
     toggleAddTodo();
   };
