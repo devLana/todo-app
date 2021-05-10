@@ -1,10 +1,16 @@
 import React from "react";
-import { connect } from "react-redux";
-import { setActiveFilter } from "../redux/actions";
+// import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+// import { setActiveFilter } from "../redux/actions";
+import { setActiveFilter } from "../redux/actions/filters";
 import { filters } from "../utils";
 import Button from "./Button";
 
-const Footer = ({ filter, setActiveFilter }) => {
+// const Footer = ({ filter, setActiveFilter }) => {
+  const Footer = () => {
+  const dispatch = useDispatch();
+  const filter = useSelector(state => state.activeFilter);
+
   return (
     <footer id="footer">
       {filters.map(({ name, type }) => (
@@ -12,15 +18,18 @@ const Footer = ({ filter, setActiveFilter }) => {
           key={name}
           className={type === filter ? "footer__btn active" : "footer__btn"}
           value={name}
-          onClick={() => setActiveFilter(type)}
+          onClick={dispatch(setActiveFilter(type))}
+          // onClick={() => setActiveFilter(type)}
         />
       ))}
     </footer>
   );
 };
 
-const mapStateToProps = state => ({
-  filter: state.activeFilter,
-});
+export default Footer;
 
-export default connect(mapStateToProps, { setActiveFilter })(Footer);
+// const mapStateToProps = state => ({
+//   filter: state.activeFilter,
+// });
+
+// export default connect(mapStateToProps, { setActiveFilter })(Footer);
