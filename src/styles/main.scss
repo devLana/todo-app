@@ -18,6 +18,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+nav,
+main,
+header,
+footer {
+  display: block;
+}
+
 .container {
   @include flexDisplay();
   min-height: 100vh;
