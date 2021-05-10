@@ -1,7 +1,8 @@
 import React from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { showTodos } from "../utils";
-import { todosAction } from "../redux/actions";
+// import { todosAction } from "../redux/actions";
 import Todo from "./Todo";
 
 const styles = {
@@ -10,8 +11,12 @@ const styles = {
   marginTop: "40px",
 };
 
-const TodoList = props => {
-  const { todos, todosAction } = props;
+// const TodoList = props => {
+//   const { todos, todosAction } = props;
+const TodoList = () => {
+  const todos = useSelector(state =>
+    showTodos(state.todos, state.activeFilter)
+  );
 
   return (
     <main id="main">
@@ -21,7 +26,8 @@ const TodoList = props => {
         ) : (
           <ul id="todos">
             {todos.map(todo => (
-              <Todo {...todo} key={todo.id} todosAction={todosAction} />
+              // <Todo {...todo} key={todo.id} todosAction={todosAction} />
+              <Todo {...todo} key={todo.id} />
             ))}
           </ul>
         )}
@@ -30,9 +36,11 @@ const TodoList = props => {
   );
 };
 
-const mapStateToProps = state => {
-  const { todos, activeFilter } = state;
-  return { todos: showTodos(todos, activeFilter) };
-};
+// const mapStateToProps = state => {
+//   const { todos, activeFilter } = state;
+//   return { todos: showTodos(todos, activeFilter) };
+// };
 
-export default connect(mapStateToProps, { todosAction })(TodoList);
+// export default connect(mapStateToProps, { todosAction })(TodoList);
+
+export default TodoList;
