@@ -1,10 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
-import { deleteAll } from "../redux/actions";
+// import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+// import { deleteAll } from "../redux/actions";
+import { deleteAll } from "../redux/actions/todos";
 import { removeStorage } from "../utils";
 import Button from "./Button";
 
-const DeleteAll = ({ dispatch, toggleDelete }) => {
+// const DeleteAll = ({ dispatch, toggleDelete }) => {
+const DeleteAll = ({ toggleDelete }) => {
+  const dispatch = useDispatch();
+
   const deleteAllTodos = () => {
     dispatch(deleteAll());
     toggleDelete();
@@ -33,4 +38,5 @@ const DeleteAll = ({ dispatch, toggleDelete }) => {
   );
 };
 
-export default connect()(DeleteAll);
+export default DeleteAll;
+// export default connect()(DeleteAll);
