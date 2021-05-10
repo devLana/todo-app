@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getStorage } from "../utils";
-import { setTodos } from "../redux/actions";
+import { setTodos } from "../redux/actions/todos";
 import Navbar from "./Navbar";
 import TodoList from "./TodoList";
 import Footer from "./Footer";
@@ -15,7 +15,8 @@ const TodoApp = () => {
 
   useEffect(() => {
     const todos = getStorage();
-    if (todos !== null) dispatch(setTodos(todos));
+
+    if (todos) dispatch(setTodos(todos));
   }, [dispatch]);
 
   const toggleAddTodo = () => {
