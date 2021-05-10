@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { setActiveFilter } from "../actions/filter";
+import { setActiveFilter } from "../actions/filters";
 
 const initialState = "filter/show_all";
 
