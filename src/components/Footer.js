@@ -7,9 +7,13 @@ import { filters } from "../utils";
 import Button from "./Button";
 
 // const Footer = ({ filter, setActiveFilter }) => {
-  const Footer = () => {
+const Footer = () => {
   const dispatch = useDispatch();
   const filter = useSelector(state => state.activeFilter);
+
+  const handleFilter = type => {
+    dispatch(setActiveFilter(type));
+  };
 
   return (
     <footer id="footer">
@@ -18,7 +22,7 @@ import Button from "./Button";
           key={name}
           className={type === filter ? "footer__btn active" : "footer__btn"}
           value={name}
-          onClick={dispatch(setActiveFilter(type))}
+          onClick={() => handleFilter(type)}
           // onClick={() => setActiveFilter(type)}
         />
       ))}

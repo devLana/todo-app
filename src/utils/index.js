@@ -7,19 +7,22 @@ export const getId = arr => {
 
 export const showTodos = (todos, filter) => {
   switch (filter) {
-    case "filter/show_all":
     default:
-      return todos
+    case "filter/show_all":
+      return [...todos]
         .sort((a, b) => b.important - a.important)
         .sort((a, b) => b.completed - a.completed);
+
     case "filter/completed":
       return todos.filter(todo => todo.completed);
+
     case "filter/active":
-      return todos
+      return [...todos]
         .sort((a, b) => b.important - a.important)
         .filter(todo => !todo.completed);
+
     case "filter/important":
-      return todos
+      return [...todos]
         .sort((a, b) => b.important - a.important)
         .filter(todo => !todo.completed)
         .filter(todo => todo.important);
