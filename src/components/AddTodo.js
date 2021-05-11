@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 // import { connect } from "react-redux";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 // import { addTodo, todosAction } from "../redux/actions";
 import { addTodo } from "../redux/actions/todos";
-import { setStorage } from "../utils";
 import Button from "./Button";
 
 // const AddTodo = ({ toggleAddTodo, dispatch }) => {
-  const AddTodo = ({ toggleAddTodo }) => {
+const AddTodo = ({ toggleAddTodo }) => {
   const [todo, setTodo] = useState("");
   const [err, setErr] = useState("");
 
   const dispatch = useDispatch();
-  const todos = useSelector(state => state.todos);
 
   const handleChange = e => {
     setTodo(e.target.value);
@@ -46,7 +44,6 @@ import Button from "./Button";
     dispatch(addTodo(input));
     setTodo("");
     toggleAddTodo();
-    setStorage(todos)
   };
 
   return (

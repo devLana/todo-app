@@ -1,11 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
-import * as actions from "../actions/todo";
+import * as actions from "../actions/todos";
 
 const initialState = [];
 
 export default createReducer(initialState, builder => {
   builder
-    .addCase(actions.addTodo, (state, action) => [...state, action.payload])
+    .addCase(actions.addTodo, (state, action) => {
+      state.push(action.payload);
+    })
 
     .addCase(actions.toggleImportant, (state, action) => {
       const todo = state.find(item => item.id === action.payload);
@@ -22,10 +24,8 @@ export default createReducer(initialState, builder => {
     .addCase(actions.deleteAll, () => initialState)
 
     .addCase(actions.deleteTodo, (state, action) => {
-      state.filter(todo => todo.id === action.payload);
+      return state.filter(todo => todo.id !== action.payload);
     })
 
-    .addCase(actions.setTodos, (_, action) => action.payload)
-
-    .addDefaultCase(() => initialState);
+    .addCase(actions.setTodos, (_, action) => action.payload);
 });

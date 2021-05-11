@@ -1,11 +1,12 @@
 import React from "react";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
 // import { createStore, applyMiddleware, compose } from "redux";
 // import ReduxThunk from "redux-thunk";
-import { Provider } from "react-redux";
+import todos from "./redux/reducers/todos";
+import activeFilter from "./redux/reducers/filters";
 import TodoApp from "./components/TodoApp";
-import todoReducer from "./redux/reducers";
 import "./styles/index.scss";
-import { configureStore } from "@reduxjs/toolkit";
 
 const App = () => {
   // const enhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -14,9 +15,14 @@ const App = () => {
   //   enhancers(applyMiddleware(ReduxThunk))
   // );
 
+  const reducer = {
+    todos,
+    activeFilter,
+  };
+
   const store = configureStore({
-    reducer: todoReducer
-  })
+    reducer,
+  });
 
   return (
     <Provider store={store}>

@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 // import { deleteAll } from "../redux/actions";
 import { deleteAll } from "../redux/actions/todos";
-import { removeStorage } from "../utils";
+// import { removeStorage } from "../utils";
 import Button from "./Button";
 
 // const DeleteAll = ({ dispatch, toggleDelete }) => {
@@ -13,7 +13,7 @@ const DeleteAll = ({ toggleDelete }) => {
   const deleteAllTodos = () => {
     dispatch(deleteAll());
     toggleDelete();
-    removeStorage();
+    // removeStorage();
   };
 
   return (
