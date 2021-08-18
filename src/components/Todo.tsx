@@ -7,7 +7,14 @@ import {
 } from "../redux/actions/todos";
 import Button from "./Button";
 
-const Todo = props => {
+type TodoProps = {
+  completed: boolean;
+  content: string;
+  id: string;
+  important: boolean;
+};
+
+const Todo: React.FC<TodoProps> = props => {
   const dispatch = useDispatch();
 
   // const { todosAction, completed, content, id, important } = props;

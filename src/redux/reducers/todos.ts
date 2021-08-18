@@ -1,7 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
+import { TodoType } from "../../dataTypes";
 import * as actions from "../actions/todos";
 
-const initialState = [];
+const initialState: TodoType[] = [];
 
 export default createReducer(initialState, builder => {
   builder

@@ -8,27 +8,27 @@ import activeFilter from "./redux/reducers/filters";
 import TodoApp from "./components/TodoApp";
 import "./styles/index.scss";
 
-const App = () => {
-  // const enhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  // const store = createStore(
-  //   todoReducer,
-  //   enhancers(applyMiddleware(ReduxThunk))
-  // );
+// const enhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const store = createStore(
+//   todoReducer,
+//   enhancers(applyMiddleware(ReduxThunk))
+// );
 
-  const reducer = {
-    todos,
-    activeFilter,
-  };
-
-  const store = configureStore({
-    reducer,
-  });
-
-  return (
-    <Provider store={store}>
-      <TodoApp />
-    </Provider>
-  );
+const reducer = {
+  todos,
+  activeFilter,
 };
+
+const store = configureStore({
+  reducer,
+});
+
+export type AppRootState = ReturnType<typeof store.getState>;
+
+const App = () => (
+  <Provider store={store}>
+    <TodoApp />
+  </Provider>
+);
 
 export default App;

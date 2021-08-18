@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getStorage, removeStorage, setStorage } from "../utils";
+import { useAppSelector } from "../hooks";
 import { setTodos } from "../redux/actions/todos";
 import Navbar from "./Navbar";
 import TodoList from "./TodoList";
@@ -14,7 +15,7 @@ const TodoApp = () => {
   const render = useRef(false);
 
   const dispatch = useDispatch();
-  const stateTodos = useSelector(state => state.todos);
+  const stateTodos = useAppSelector(state => state.todos);
 
   useEffect(() => {
     const storageTodos = getStorage();
@@ -28,7 +29,7 @@ const TodoApp = () => {
     } else {
       stateTodos.length === 0 ? removeStorage() : setStorage(stateTodos);
     }
-  }, [stateTodos, render]);
+  }, [stateTodos]);
 
   const toggleAddTodo = () => {
     setAddTodo(!addTodo);

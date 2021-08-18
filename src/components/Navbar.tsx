@@ -1,9 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../hooks";
 import Button from "./Button";
 
-const Navbar = ({ toggleAddTodo, toggleDelete }) => {
-  const todos = useSelector(state => state.todos);
+type NavbarProps = {
+  toggleAddTodo: () => void;
+  toggleDelete: () => void;
+};
+
+const Navbar: React.FC<NavbarProps> = ({ toggleAddTodo, toggleDelete }) => {
+  const todos = useAppSelector(state => state.todos);
 
   return (
     <nav id="nav">

@@ -1,11 +1,11 @@
 import React from "react";
 // import { connect } from "react-redux";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../hooks";
 import { showTodos } from "../utils";
 // import { todosAction } from "../redux/actions";
 import Todo from "./Todo";
 
-const styles = {
+const styles: React.CSSProperties = {
   fontSize: "2rem",
   textAlign: "center",
   marginTop: "40px",
@@ -13,8 +13,8 @@ const styles = {
 
 // const TodoList = props => {
 //   const { todos, todosAction } = props;
-const TodoList = () => {
-  const todos = useSelector(state =>
+const TodoList: React.FC<{}> = () => {
+  const todos = useAppSelector(state =>
     showTodos(state.todos, state.activeFilter)
   );
 

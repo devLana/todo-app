@@ -6,8 +6,11 @@ import { deleteAll } from "../redux/actions/todos";
 // import { removeStorage } from "../utils";
 import Button from "./Button";
 
+type DeleteAllProps = {
+  toggleDelete: () => void;
+};
 // const DeleteAll = ({ dispatch, toggleDelete }) => {
-const DeleteAll = ({ toggleDelete }) => {
+const DeleteAll: React.FC<DeleteAllProps> = ({ toggleDelete }) => {
   const dispatch = useDispatch();
 
   const deleteAllTodos = () => {

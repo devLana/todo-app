@@ -1,17 +1,18 @@
 import React from "react";
 // import { connect } from "react-redux";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 // import { setActiveFilter } from "../redux/actions";
+import { useAppSelector } from "../hooks";
 import { setActiveFilter } from "../redux/actions/filters";
 import { filters } from "../utils";
 import Button from "./Button";
 
 // const Footer = ({ filter, setActiveFilter }) => {
-const Footer = () => {
+const Footer: React.FC<{}> = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.activeFilter);
+  const filter = useAppSelector(state => state.activeFilter);
 
-  const handleFilter = type => {
+  const handleFilter = (type: string) => {
     dispatch(setActiveFilter(type));
   };
 

@@ -5,29 +5,32 @@ import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/actions/todos";
 import Button from "./Button";
 
+type AddTodoProps = {
+  toggleAddTodo: () => void;
+};
+
 // const AddTodo = ({ toggleAddTodo, dispatch }) => {
-const AddTodo = ({ toggleAddTodo }) => {
+const AddTodo: React.FC<AddTodoProps> = ({ toggleAddTodo }) => {
   const [todo, setTodo] = useState("");
   const [err, setErr] = useState("");
 
   const dispatch = useDispatch();
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTodo(e.target.value);
   };
 
-  const handleBlur = e => {
-    e.target.style.border = "2px solid #000";
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.style.boxShadow = "none";
   };
 
-  const handleFocus = e => {
-    e.target.style.border = "2px solid #011b65";
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.style.boxShadow = "0 0 4px 4px #9ab5fe";
     setErr("");
   };
 
-  const handleKeyPress = e => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      e.target.blur();
       submit();
     }
   };
